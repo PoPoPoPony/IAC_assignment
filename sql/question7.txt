@@ -1,0 +1,30 @@
+CREATE TABLE Persons (
+    Id_P SERIAL PRIMARY KEY,
+    LastName VARCHAR(25) NOT NULL,
+    FirstName VARCHAR(25) NOT NULL,
+    Address VARCHAR(50),
+    City VARCHAR(20)
+);
+
+CREATE TABLE Orders (
+    Id_O SERIAL PRIMARY KEY,
+    OrderNo INTEGER NOT NULL,
+    Id_P INTEGER NOT NULL
+);
+
+INSERT INTO Persons (LastName, FirstName, Address, City)
+VALUES ('Adams', 'John', 'Oxford Street', 'London'),
+('Bush', 'George', 'Fifth Avenue', 'New York'),
+('Carter', 'Thomas', 'Changan Street', 'Beijing');
+
+INSERT INTO Orders (OrderNo, Id_P)
+VALUES (77895, 3),
+(44678, 3),
+(22456, 1),
+(24562, 1),
+(34764, 65);
+
+SELECT Persons.Id_P, Persons.LastName, Persons.FirstName, Persons.Address, Persons.City,
+       Orders.OrderNo
+FROM Persons
+LEFT JOIN Orders ON Persons.Id_P = Orders.Id_P;

@@ -1,0 +1,1 @@
+print(" ".join(["".join(reversed(s)) for s in input().split(" ")]))

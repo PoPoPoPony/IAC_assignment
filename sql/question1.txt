@@ -1,0 +1,11 @@
+// 新增Persons資料表
+CREATE TABLE Persons (
+    PersonId SERIAL PRIMARY KEY,
+    LastName VARCHAR(25) NOT NULL,
+    FirstName VARCHAR(25) NOT NULL,
+    Address VARCHAR(50),
+    City VARCHAR(20)
+);
+
+// 刪除Persons資料表
+DROP TABLE Persons;

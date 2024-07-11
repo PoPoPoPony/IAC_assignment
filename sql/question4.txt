@@ -1,0 +1,20 @@
+CREATE TABLE Company(
+  CompanyName VARCHAR(50),
+  CreateYear INT
+);
+
+INSERT INTO Company (CompanyName, CreateYear)
+VALUES ('IBM', 1924),
+('IANC', 2008),
+('Apple', 1976),
+('IANC', 2008),
+('Google', 1998),
+('Google', 1998);
+
+SELECT CompanyName
+FROM (
+    SELECT CompanyName, MAX(CreateYear) AS MaxCreateYear
+    FROM Company
+    GROUP BY CompanyName
+) AS subquery
+ORDER BY MaxCreateYear DESC;
